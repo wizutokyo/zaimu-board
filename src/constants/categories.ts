@@ -4,6 +4,7 @@ export const EXPENSE_CATEGORIES = [
   { key: 'social',     label: '交際費', emoji: '🤝', color: '#7A5CFF' },
   { key: 'misc',       label: '雑費',   emoji: '📦', color: '#64748B' },
   { key: 'investment', label: '投資',   emoji: '📈', color: '#4F6DF5' },
+  { key: 'waste',      label: '浪費',   emoji: '💸', color: '#F43F5E' },
 ] as const
 
 export const INCOME_CATEGORIES = [
