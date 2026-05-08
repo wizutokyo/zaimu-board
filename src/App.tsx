@@ -6,6 +6,7 @@ import { PLReport } from './pages/PLReport'
 import { BSReport } from './pages/BSReport'
 import { Analysis } from './pages/Analysis'
 import { Settings } from './pages/Settings'
+import { CalendarView } from './pages/CalendarView'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Routes>
           <Route path="/"         element={<Dashboard />} />
           <Route path="/input"    element={<TransactionInput />} />
+          <Route path="/calendar" element={<CalendarView />} />
           <Route path="/pl"       element={<PLReport />} />
           <Route path="/bs"       element={<BSReport />} />
           <Route path="/analysis" element={<Analysis />} />
