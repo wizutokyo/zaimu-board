@@ -3,7 +3,7 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import { db } from '../db/database'
 import { formatCurrency, todayString } from '../utils/formatters'
 import { LIABILITY_CATEGORIES } from '../constants/categories'
-import { Card, SectionHeader, KpiCard } from '../components/ui/Card'
+import { Card, SectionHeader } from '../components/ui/Card'
 import { Button } from '../components/ui/Button'
 import { upsertBalanceItem } from '../db/queries'
 import { useToast } from '../components/ui/Toast'
@@ -81,11 +81,24 @@ export function BSReport() {
         )}
 
         {/* サマリー */}
-        <div className="grid grid-cols-3 gap-3">
-          <KpiCard label="資産合計"  value={formatCurrency(totalAssets)}      accent="blue" />
-          <KpiCard label="負債合計"  value={formatCurrency(totalLiabilities)} accent="red" />
-          <KpiCard label="純資産"    value={formatCurrency(netAssets)}        accent={netAssets >= 0 ? 'green' : 'red'} />
-        </div>
+        <Card className="p-0 overflow-hidden">
+          <div className="flex">
+            <div className="flex-1 p-3 border-r border-gray-50">
+              <p className="text-xs text-brand-muted mb-1">資産合計</p>
+              <p className="text-lg font-bold text-brand-blue leading-tight">{formatCurrency(totalAssets)}</p>
+            </div>
+            <div className="flex-1 p-3 border-r border-gray-50">
+              <p className="text-xs text-brand-muted mb-1">負債合計</p>
+              <p className="text-lg font-bold text-red-500 leading-tight">{formatCurrency(totalLiabilities)}</p>
+            </div>
+            <div className="flex-1 p-3">
+              <p className="text-xs text-brand-muted mb-1">純資産</p>
+              <p className={`text-lg font-bold leading-tight ${netAssets >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
+                {formatCurrency(netAssets)}
+              </p>
+            </div>
+          </div>
+        </Card>
 
         {/* 資産（自動計算） */}
         <Card>
