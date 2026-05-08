@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* iOS Safariズーム防止 */
+input, select, textarea {
+  font-size: 16px;
+}
+
+/* スクロールバー非表示 */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #EAF6FF;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 数字入力の矢印を非表示 */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
